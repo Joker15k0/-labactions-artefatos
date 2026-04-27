@@ -18,16 +18,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Simular execução de testes
+      - name: Gerar relatório
         run: |
-          echo "Executando testes..." > relatorio.txt
-          echo "Status: OK" >> relatorio.txt
+          echo "OK" > relatorio.txt
 
-      - name: Upload do relatório (artefato)
+      - name: Upload artefato
         uses: actions/upload-artifact@v4
         with:
-          name: relatorio-testes
+          name: relatorio
           path: relatorio.txt
