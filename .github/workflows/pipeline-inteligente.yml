@@ -12,3 +12,22 @@ on:
     paths:
       - 'src/**'
       - '!src/docs/**'
+
+jobs:
+  teste:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Simular execução de testes
+        run: |
+          echo "Executando testes..." > relatorio.txt
+          echo "Status: OK" >> relatorio.txt
+
+      - name: Upload do relatório (artefato)
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-testes
+          path: relatorio.txt
